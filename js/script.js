@@ -1,3 +1,17 @@
+function init () {
+  var canvas = document.createElement('canvas')
+  canvas.height = 512
+  canvas.width = 512
+  var ctx = canvas.getContext('2d')
+  document.querySelector('body').appendChild(canvas)
+  ctx.fillStyle = 'green'
+  ctx.fillRect(10, 10, 100, 100)
+  return { ctx, canvas }
+}
+
+init()
+
+
 levelData = [
   [1,1,1,1,1,1],
   [1,0,0,0,0,1],

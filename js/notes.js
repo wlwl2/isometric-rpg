@@ -1,3 +1,6 @@
+ctx.fillStyle = 'green'
+ctx.fillRect(10, 10, 100, 100)
+
 // Cartesian to isometric:
 isoX = cartX - cartY
 isoY = (cartX + cartY) / 2
