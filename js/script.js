@@ -1,16 +1,15 @@
-function init () {
-  var canvas = document.createElement('canvas')
+function init (){
+  const canvas = document.createElement('canvas')
   canvas.height = 512
   canvas.width = 512
-  var ctx = canvas.getContext('2d')
+  const ctx = canvas.getContext('2d')
+  ctx.scale(1, 0.5)
+  ctx.rotate(45 * Math.PI /180)
   document.querySelector('body').appendChild(canvas)
-  ctx.fillStyle = 'green'
-  ctx.fillRect(10, 10, 100, 100)
   return { ctx, canvas }
 }
 
-init()
-
+const {ctx, canvas} = init()
 
 levelData = [
   [1,1,1,1,1,1],
@@ -21,17 +20,28 @@ levelData = [
   [1,1,1,1,1,1]
 ]
 
-var game = {
+const game = {
   tileWidth: 30,
   tileHeight: 30
 }
 
+function placetile (tileType, pt, ctx) {
+  if (tileType === 1) {
+    ctx.fillStyle = 'brown'
+    ctx.fillRect(pt.x + 200, pt.y, 30, 30)
+  }
+  if (tileType === 0) {
+    ctx.fillStyle = 'green'
+    ctx.fillRect(pt.x + 200, pt.y, 30, 30)
+  }
+}
+
 for (var i = 0; i < levelData.length; i++)	{
-	for (var j = 0; j < levelData; j++) {
-    x = j * tileWidth
-    y = i * tileHeight
+	for (var j = 0; j < levelData[i].length; j++) {
+    x = j * game.tileWidth
+    y = i * game.tileHeight
     tileType = levelData[i][j]
-    placetile(tileType, x, y)
+    placetile(tileType, {x: x, y: y}, ctx)
 	}
 }
 
@@ -49,7 +59,7 @@ function isometricToCartesian (pt) {
 
 var test = {x: 10, y: 5}
 
-console.log(cartesianToIsometric(test))
+// console.log(cartesianToIsometric(test))
 
 function cartesianToIsometric (pt) {
   var tempPt = new Point(0, 0)
