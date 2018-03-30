@@ -6,6 +6,6 @@
 3. run `npm i` in the repository directory
 4. run `grunt` in the repository directory
 
-https://opengameart.org/content/isometric-64x64-medieval-building-tileset
+https://gamedevelopment.tutsplus.com/tutorials/creating-isometric-worlds-primer-for-game-developers-updated--cms-28392
 
-http://www.gotoandplay.it/_articles/2004/02/tonypa_p05.php
+https://opengameart.org/content/isometric-64x64-medieval-building-tileset
