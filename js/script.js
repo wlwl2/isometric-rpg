@@ -3,8 +3,6 @@ function init (){
   canvas.height = 512
   canvas.width = 512
   const ctx = canvas.getContext('2d')
-  ctx.scale(1, 0.5)
-  ctx.rotate(45 * Math.PI /180)
   document.querySelector('body').appendChild(canvas)
   return { ctx, canvas }
 }
@@ -41,7 +39,7 @@ for (var i = 0; i < levelData.length; i++)	{
     x = j * game.tileWidth
     y = i * game.tileHeight
     tileType = levelData[i][j]
-    placetile(tileType, {x: x, y: y}, ctx)
+    placetile(tileType, cartesianToIsometric({x: x, y: y}), ctx)
 	}
 }
 
